@@ -1,0 +1,32 @@
+.team-detail-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+.team-detail-hero  { display: flex; align-items: center; gap: 16px; }
+.team-detail-icon  { width: 52px; height: 52px; border-radius: 14px; background: var(--accent-dim); color: var(--accent); font-family: var(--font-display); font-size: 22px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+.team-detail-grid  { display: grid; grid-template-columns: 280px 1fr; gap: 24px; align-items: start; }
+
+.section-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.section-heading    { display: flex; align-items: center; gap: 7px; font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--text-2); }
+
+/* Members */
+.members-list { display: flex; flex-direction: column; gap: 2px; }
+.member-row   { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: var(--radius); background: var(--bg-2); border: 1px solid var(--border); margin-bottom: 4px; }
+.member-avatar-md { width: 34px; height: 34px; border-radius: 50%; background: var(--accent-dim); color: var(--accent); font-family: var(--font-display); font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.member-info  { flex: 1; min-width: 0; }
+.member-name  { display: block; font-size: 13px; font-weight: 600; }
+.member-email { display: block; font-size: 11px; color: var(--text-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.owner-badge  { background: var(--accent-dim); color: var(--accent); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 99px; text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0; }
+
+/* Team tasks */
+.team-tasks-list { display: flex; flex-direction: column; gap: 4px; }
+.team-task-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px 14px; background: var(--bg-2); border: 1px solid var(--border);
+  border-radius: var(--radius); transition: background 0.15s, border-color 0.15s;
+}
+.team-task-row:hover { background: var(--bg-3); border-color: var(--border-2); }
+.team-task-title { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 280px; }
+.task-assignee-chip { background: var(--bg-3); border: 1px solid var(--border-2); padding: 2px 7px; border-radius: 5px; font-size: 11px; font-weight: 600; color: var(--text-2); white-space: nowrap; }
+
+@media (max-width: 800px) {
+  .team-detail-grid { grid-template-columns: 1fr; }
+}

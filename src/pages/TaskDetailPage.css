@@ -1,0 +1,73 @@
+.back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--text-3); font-size: 13px; font-weight: 500;
+  margin-bottom: 20px; padding: 6px 0; transition: color 0.15s;
+}
+.back-btn:hover { color: var(--text); }
+
+.task-detail-grid { display: grid; grid-template-columns: 1fr 260px; gap: 24px; align-items: start; }
+
+.task-detail-header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.task-detail-badges { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.task-detail-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+.task-detail-title {
+  font-family: var(--font-display); font-size: 24px; font-weight: 800;
+  letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 14px;
+}
+.task-detail-desc {
+  font-size: 14px; color: var(--text-2); line-height: 1.7;
+  white-space: pre-wrap; margin-bottom: 4px;
+}
+
+.team-chip-lg {
+  background: var(--bg-3); border: 1px solid var(--border-2);
+  padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--text-2);
+}
+
+.detail-section { margin-top: 28px; }
+.detail-section-title {
+  display: flex; align-items: center; gap: 7px;
+  font-family: var(--font-display); font-size: 14px; font-weight: 700;
+  margin-bottom: 16px; color: var(--text-2);
+}
+
+/* Comments */
+.comments-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 16px; }
+.comment-item  { display: flex; gap: 10px; }
+.comment-avatar {
+  width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+  background: var(--accent-dim); color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; font-family: var(--font-display);
+}
+.comment-body   { flex: 1; min-width: 0; }
+.comment-meta   { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+.comment-author { font-size: 13px; font-weight: 600; }
+.comment-time   { font-size: 11px; color: var(--text-3); }
+.comment-content { font-size: 13px; color: var(--text-2); line-height: 1.6; white-space: pre-wrap; }
+
+.comment-form { display: flex; gap: 10px; margin-top: 4px; }
+.comment-form .input { flex: 1; }
+
+/* Attachments */
+.attachment-list  { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+.attachment-item  { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--bg-3); border-radius: var(--radius); border: 1px solid var(--border); }
+.attachment-name  { flex: 1; font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.attachment-size  { font-size: 11px; color: var(--text-3); white-space: nowrap; flex-shrink: 0; }
+
+/* Sidebar */
+.task-detail-sidebar {}
+.sidebar-info-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px; }
+.info-row { display: flex; flex-direction: column; gap: 3px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.info-row:first-child { padding-top: 0; }
+.info-label { font-size: 11px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.05em; }
+.info-value { font-size: 13px; font-weight: 500; }
+
+@media (max-width: 800px) {
+  .task-detail-grid { grid-template-columns: 1fr; }
+}
