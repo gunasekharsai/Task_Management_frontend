@@ -45,6 +45,25 @@ export default function TaskDetailPage() {
     }
   }
 
+  async function downloadFile(attachmentId: string, filename: string) {
+  const token = localStorage.getItem('accessToken')
+  const res = await fetch(`/api/v1/attachments/download/${attachmentId}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
+  if (!res.ok) {
+    throw new Error(`Download failed: ${res.status}`)
+  }
+  const blob = await res.blob()
+  const url  = URL.createObjectURL(blob)
+  const a    = document.createElement('a')
+  a.href     = url
+  a.download = filename
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
+}
+
   useEffect(() => { fetchAll() }, [id])
 
   const handleComplete = async () => {
@@ -110,6 +129,16 @@ export default function TaskDetailPage() {
     } finally {
       setUploading(false)
       if (fileRef.current) fileRef.current.value = ''
+    }
+  }
+
+  const handledownloadAttachment = async (attachmentId: string) => {
+    try {
+      await attachmentApi.downloadUrl(attachmentId)
+      setAttachments(prev => prev.filter(a => a.id !== attachmentId))
+      toast.success('Attachment downloaded')
+    } catch {
+      toast.error('Failed to download attachment')
     }
   }
 
@@ -232,10 +261,19 @@ export default function TaskDetailPage() {
                   <Paperclip size={14} style={{ color: 'var(--text-3)', flexShrink: 0 }} />
                   <span className="attachment-name">{a.originalFileName}</span>
                   <span className="attachment-size">{(a.fileSize / 1024).toFixed(1)} KB</span>
-                  <a href={attachmentApi.downloadUrl(a.id)}
-                    className="btn btn-ghost btn-sm btn-icon" download target="_blank" rel="noreferrer">
+                  <button
+                    className="btn btn-ghost btn-sm btn-icon"
+                    title="Download"
+                    onClick={async () => {
+                      try {
+                        await downloadFile(a.id, a.originalFileName)
+                      } catch {
+                        toast.error('Download failed — please try again')
+                      }
+                    }}
+                  >
                     <Download size={13} />
-                  </a>
+                  </button>
                   {(isCreator || a.uploadedBy.id === user?.id) && (
                     <button className="btn btn-ghost btn-sm btn-icon"
                       onClick={() => handleDeleteAttachment(a.id)}>

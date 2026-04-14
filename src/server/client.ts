@@ -1,8 +1,8 @@
 import axios, { type AxiosInstance, type InternalAxiosRequestConfig } from 'axios'
 
 const api: AxiosInstance = axios.create({
-  // baseURL: 'http://localhost:8080/api/v1',
-  baseURL: 'https://task-managment-on6a.onrender.com/api/v1',
+  baseURL: 'http://localhost:8080/api/v1',
+  // baseURL: 'https://task-managment-on6a.onrender.com/api/v1',
   headers: { 'Content-Type': 'application/json' },
 })
 
