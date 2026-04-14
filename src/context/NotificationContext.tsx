@@ -1,10 +1,10 @@
-import { createContext, useContext, useState, useEffect, useRef, useCallback, type ReactNode } from 'react'
-import { Client } from '@stomp/stompjs'
-import SockJS from 'sockjs-client'
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react'
+// import { Client } from '@stomp/stompjs'
+// import SockJS from 'sockjs-client'
 import { notificationApi } from '../server/services'
 import { useAuth } from './AuthContext'
 import type { Notification } from '../types'
-import toast from 'react-hot-toast'
+// import toast from 'react-hot-toast'
 
 interface NotificationContextType {
   notifications:     Notification[]
@@ -20,7 +20,7 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth()
   const [notifications, setNotifications] = useState<Notification[]>([])
   const [unreadCount,   setUnreadCount]   = useState(0)
-  const stompRef = useRef<Client | null>(null)
+  // const stompRef = useRef<Client | null>(null)
 
   const fetchNotifications = useCallback(async () => {
     if (!user) return

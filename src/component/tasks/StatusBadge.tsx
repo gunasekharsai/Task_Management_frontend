@@ -2,10 +2,10 @@ import type { TaskStatus, TaskPriority } from '../../types'
 
 const STATUS_MAP: Record<TaskStatus, [string, string]> = {
   OPEN:        ['badge-open',     'Open'],
-  IN_PROGRESS: ['badge-progress', 'In Progress'],
-  ON_HOLD:     ['badge-hold',     'On Hold'],
+  // IN_PROGRESS: ['badge-progress', 'In Progress'],
+  // ON_HOLD:     ['badge-hold',     'On Hold'],
   COMPLETED:   ['badge-done',     'Done'],
-  CANCELLED:   ['badge-cancel',   'Cancelled'],
+  // CANCELLED:   ['badge-cancel',   'Cancelled'],
 }
 
 const PRIORITY_MAP: Record<TaskPriority, [string, string]> = {

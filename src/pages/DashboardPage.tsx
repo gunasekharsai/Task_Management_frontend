@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { taskApi, teamApi } from '../server/services'
 import { useAuth } from '../context/AuthContext'
 import type { Task, Team } from '../types'
-import { CheckSquare, Users, TrendingUp, Clock, ArrowRight } from 'lucide-react'
+import { CheckSquare, Users, Clock, ArrowRight } from 'lucide-react'
 import { formatDistanceToNow } from 'date-fns'
 import { StatusBadge, PriorityBadge } from '../component/tasks/StatusBadge'
 import './Dashboard.css'
@@ -25,7 +25,7 @@ export default function DashboardPage() {
   }, [])
 
   const open   = tasks.filter(t => t.status === 'OPEN').length
-  const inProg = tasks.filter(t => t.status === 'IN_PROGRESS').length
+  // const inProg = tasks.filter(t => t.status === 'IN_PROGRESS').length
   const done   = tasks.filter(t => t.status === 'COMPLETED').length
 
   return (
@@ -41,7 +41,7 @@ export default function DashboardPage() {
       <div className="stat-grid">
         {([
           { label: 'Open',        value: open,         icon: CheckSquare, color: 'blue'   },
-          { label: 'In Progress', value: inProg,        icon: TrendingUp,  color: 'accent' },
+          // { label: 'In Progress', value: inProg,        icon: TrendingUp,  color: 'accent' },
           { label: 'Completed',   value: done,          icon: Clock,       color: 'green'  },
           { label: 'Teams',       value: teams.length,  icon: Users,       color: 'purple' },
         ] as const).map(({ label, value, icon: Icon, color }) => (
